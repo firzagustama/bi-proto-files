@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "corp.bi.go.id.ap.user.grpc";
+option csharp_namespace = "corp.bi.go.id.ap.user.grpc";
+
+message Empty {}
+
+message Customer {
+    string id = 1;
+    string email = 2;
+    string name = 3;
+}
+
+message CustomerList {
+    repeated Customer customers = 1;
+}
+
+message CustomerRequestId {
+    string id = 1;
+}
+
+service CustomerService {
+    rpc getAll (Empty) returns (CustomerList) {}
+    rpc get (CustomerRequestId) returns (Customer) {}
+}

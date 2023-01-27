@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "corp.bi.go.id.ap.khazanah.grpc";
+option csharp_namespace = "corp.bi.go.id.ap.khazanah.grpc";
+
+message KhazanahRequest {
+  string id = 1;
+}
+
+message AllKhazanahRequest {}
+
+message KhazanahResponse {
+  string id = 1;
+  string type = 2;
+  string name = 3;
+  string address = 4;
+  int64 orderQuota = 5;
+  string status = 6;
+}
+
+message AllKhazanahResponse {
+  repeated KhazanahResponse khazanah = 1;
+}
+
+message UpdateOrderQuotaRequest {
+  string id = 1;
+  int64 orderQuota = 2;
+}
+
+service KhazanahService {
+  rpc getKhazanah(KhazanahRequest) returns (KhazanahResponse) {};
+  rpc getAllKhazanah(AllKhazanahRequest) returns (AllKhazanahResponse) {};
+  rpc updateOrderQuota(UpdateOrderQuotaRequest) returns (KhazanahResponse) {};
+}

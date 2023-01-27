@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "corp.bi.go.id.ap.acquiring.grpc";
+option csharp_namespace = "corp.bi.go.id.ap.acquiring.grpc";
+
+message OrderHeaderUBRequest {
+  string orderNo = 1;
+}
+
+message OrderHeaderUBResponse {
+  string id = 1;
+  string orderNo = 2;
+  string name = 3;
+}
+
+service OrderService {
+  rpc getOrderUB(OrderHeaderUBRequest) returns (OrderHeaderUBResponse) {};
+}

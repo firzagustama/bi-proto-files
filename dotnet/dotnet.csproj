@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PackageId>corp.bi.go.id.rpc.interface</PackageId>
+		<Authors>mfirza_gustama</Authors>
+		<Company>Bank Indonesia</Company>
+		<IsPackable>true</IsPackable>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Protobuf Include="..\proto\*.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+	</ItemGroup>
+
+</Project>
